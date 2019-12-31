@@ -1,0 +1,73 @@
+@CHARSET "ISO-8859-1";
+.cpcontainer{
+	
+}
+.cpbanner{
+	position:fixed;
+	margin-top: -8px;
+	margin-left: -8px;
+	height:65px;
+	width:1380px;
+	background-color: #42526d;	
+	color: #ffffff;
+	font-family: sans-serif;
+	font-size: 14px;
+	font-weight: 700;
+	text-decoration: none;
+}
+.cpbanneritems{
+	margin-top: 25px;
+	margin-left: 900px;
+	text-decoration: none;
+	color: #ffffff;
+}
+.nochange{
+	text-decoration: none;
+	color: #ffffff;
+}
+.nochange:hover{
+	text-decoration: none;
+	color: #dde0e5;
+}
+.signinform{
+	margin: 20px;
+}
+.tabcontentalign{
+	margin-top: 10px;
+	margin-left: 80px;
+}
+@media (max-width: 768px) {
+  .tabcontentalign {
+    margin-left: 5px;
+  }
+}
+.selectpanel{
+	padding-top: 40px; 
+	padding-left: 180px;
+}
+
+.btncustom{
+	margin-left: 550px;
+}
+.keepleft{
+	margin-left: 1000px;
+	margin-right: 55px;
+}
+.line{
+	margin-left: 55px;
+	margin-right: 55px;
+}
+.limits{
+	width: 350px;
+}
+.limits1{
+margin-left: 100px;	
+}
+.adjust{
+	margin-top: 10px;
+	margin-left: 900px;
+}
+.inc{
+	font-size: 25px;
+	font-family: sans-serif;
+}

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link href="cpstyles.css" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
+<script src="jquery.js"></script>
+<script src="bootstrap/js/bootstrap.js"></script>
+<script src="jqueryres/jquery-2.1.4.js"></script>
+<script src="jqueryres/jquery-ui.js"></script>
+<link href="jqueryres/jquery-ui.css" rel="stylesheet" />
+
+<script type="text/javascript">
+document.onmousedown=disableclick;
+status="Sorry !! This Operation is NOT ALLOWED";
+function disableclick(event)
+{
+	
+  if(event.button==2)
+   {
+	alert(status);
+     return false;    
+   }
+}
+
+</script>
+
+<script type="text/javascript">
+
+
+$(document).ready(
+		function() {
+			$("#alert").hide();
+			$("#alert1").hide();
+			$("#alert2").hide();
+			$("#alert3").hide();
+		});
+
+
+function checkData() {
+	if($("#userid").val()== ""){
+		$("#alert2").fadeIn(1000).show().delay(5000).fadeOut(1000);
+	}
+	else if($("#upwd").val() == ""){
+		$("#alert3").fadeIn(1000).show().delay(5000).fadeOut(1000);
+	}
+	else{
+		$("#alert1").fadeIn(1000).show();
+	$.get("cpsignin.jsp", { userid : $("#userid").val(),
+		                    upwd : $("#upwd").val() }, doUpdate);
+	}
+}
+
+function doUpdate(response){
+var respfromserver = response;
+var respfromservertrimmed = respfromserver.trim();
+
+if (respfromservertrimmed) {
+	
+	if (respfromservertrimmed == "nomatch") {
+		$("#alert1").hide();
+			$("#alert").fadeIn(1000).show().delay(1000).fadeOut(1000);    
+		}
+	
+	else{
+		
+		window.location.replace("generateqp.jsp");
+	}
+}
+
+}
+</script>
+
+
+<title>Sign In</title>
+</head>
+<body oncontextmenu="return false">
+ 
+ 
+ <nav class="navbar navbar-default">
+ <div class="container">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+      <a class="navbar-brand" href="indexcp.html">Campus-Pedia</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="indexcp.html">Home</a></li>
+        <li><a href="cpsignin.html">Question Bank</a></li>
+        <li><a href="cpqaforum.html">Forums and Announcements</a></li>
+       
+      </ul>
+     
+      <form class="navbar-form navbar-left" role="search">
+         
+     &nbsp;&nbsp;
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search Campus-Pedia">
+        </div>
+             <button type="submit" class="btn btn-default">Search</button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Register</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+    <li class="active"><a href="cpsignin.html">Sign In<span class="sr-only">(current)</span></a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</div>
+</nav>
+<br>
+ <div class="signinform">
+<div class="panel panel-info">
+<div class="panel-heading">Sign In for Question Paper Generator</div>
+  <div class="panel-body selectpanel">
+ 
+ <!-- ****************************Panel Content************************************ -->
+ 
+ 
+<form class="form-horizontal">
+  <div class="form-group">
+  <br>
+ <div class="alert alert-danger" id="alert" role="alert"><strong> OOPS !!</strong>   Your Credentials are wrong</div>
+ <div class="alert alert-success" id="alert1" role="alert"><strong> Please wait.... Processing</strong>   </div>
+  <div class="alert alert-danger" id="alert2" role="alert"><strong> Sorry !!</strong>   Username cannot be left Empty</div>
+  <div class="alert alert-danger" id="alert3" role="alert"><strong> Please Enter Password</strong></div>
+   
+    <label for="inputUsername3" class="col-sm-2 control-label">Username</label>
+  
+    <div class="col-sm-10">
+   
+      <input type="text" name="userid" class="form-control" id="userid" placeholder="Username" required="required">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control" id="upwd" name="upwd" placeholder="Password" required="required">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox"> Remember me
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <input type="button" class="btn btn-default" value="Sign in" onclick="checkData()"/>
+      <button type="button" class="btn btn-primary">Forgot Password ?</button>
+    </div>
+  </div>
+
+</form>
+</div>
+ 
+ 
+ <!-- **************************************************************** -->
+ 
+ 
+ 
+  </div>
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Campus Pedia - An Online Learning Portal</title>
+	
+	<!-- Favicons (created with http://realfavicongenerator.net/)-->
+	<link rel="apple-touch-icon" sizes="57x57" href="img/favicons/apple-touch-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="img/favicons/apple-touch-icon-60x60.png">
+	<link rel="icon" type="image/png" href="img/favicons/favicon-32x32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="img/favicons/favicon-16x16.png" sizes="16x16">
+	<link rel="manifest" href="img/favicons/manifest.json">
+	<link rel="shortcut icon" href="img/favicons/favicon.ico">
+	<meta name="msapplication-TileColor" content="#00a8ff">
+	<meta name="msapplication-config" content="img/favicons/browserconfig.xml">
+	<meta name="theme-color" content="#ffffff">
+
+	<!-- Normalize -->
+	<link rel="stylesheet" type="text/css" href="css/normalize.css">
+	<!-- Bootstrap -->
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<!-- Owl -->
+	<link rel="stylesheet" type="text/css" href="css/owl.css">
+	<!-- Animate.css -->
+	<link rel="stylesheet" type="text/css" href="css/animate.css">
+	<!-- Font Awesome -->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.1.0/css/font-awesome.min.css">
+	<!-- Elegant Icons -->
+	<link rel="stylesheet" type="text/css" href="fonts/eleganticons/et-icons.css">
+	<!-- Main style -->
+	<link rel="stylesheet" type="text/css" href="css/cardio.css">
+	<script src="jquery.js"></script>
+	<script src="bootstrap/js/bootstrap.js"></script>
+	
+	<script type="text/javascript">
+
+
+
+
+function checkData() {
+	
+	$("#status").modal('show');  
+	
+	if($("#userid").val()== ""){
+		$("#alert2").fadeIn(1000).show().delay(5000).fadeOut(1000);
+	}
+	else if($("#upwd").val() == ""){
+		$("#alert3").fadeIn(1000).show().delay(5000).fadeOut(1000);
+	}
+	else{
+		
+	$.get("cpsignin.jsp", { userid : $("#userid").val(),
+		                    upwd : $("#upwd").val() }, doUpdate);
+	}
+}
+
+function doUpdate(response){
+var respfromserver = response;
+var respfromservertrimmed = respfromserver.trim();
+
+if (respfromservertrimmed) {
+	
+	if (respfromservertrimmed == "nomatch") {
+		
+		$("#status").modal('hide');  	
+		$("#statusfail").modal('show');    
+		}
+	
+	else{
+		
+		window.location.href="campuspedia.jsp";
+	}
+}
+
+}
+</script>
+	
+	
+	
+	
+	
+</head>
+
+<body>
+	<div class="preloader">
+	<p> Please be patient, while we load the images at a stretch....
+		<img src="img/loader.gif" alt="Preloader image">
+	</div>
+	<nav class="navbar">
+		<div class="container">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#"></a>
+			</div>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav navbar-right main-nav">
+					<li><a href="indexcp.html">Home</a></li>
+					<li><a href="cpqbview.html">Question Bank</a></li>
+					<li><a href="cpqaforum.html">Q-A Forums</a></li>
+					<li><a href="cpsignin.html">Question Paper Generator</a></li>
+					<li><a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-blue">Sign In</a></li>
+					<li><a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-blue">Sign Up</a></li>
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
+		</div>
+		<!-- /.container-fluid -->
+	</nav>
+	<header id="intro">
+		<div class="container">
+			<div class="table">
+				<div class="header-text">
+					<div class="row">
+						<div class="col-md-12 text-center">
+							<h3 class="light white">Campus Pedia</h3>
+							
+							<h1 class="white typed">Welcome to our Free Online Learning Portal</h1>
+					
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<br><br><br><br><br><br><br><br>
+	<section>
+		<div class="cut cut-top"></div>
+		<div class="container">
+			<div class="row intro-tables">
+				
+				<div class="col-md-4">
+					<div class="intro-table intro-table-hover1">
+						<h5 class="white heading hide-hover">Explore Now</h5>
+						<div class="bottom">
+							<h4 class="white heading small-heading no-margin regular">Explore</h4>
+							<h5 class="white heading small-pt">Utilize our powerful online Resources of Campus Pedia</h5>
+							<a href="#" class="btn btn-white-fill expand">Explore</a>
+						</div>
+					</div>
+				</div>
+				
+				
+				<div class="col-md-4">
+					<div class="intro-table intro-table-hover">
+						<h5 class="white heading hide-hover">Campus-Pedia</h5>
+						<div class="bottom">
+							<h4 class="white heading small-heading no-margin regular">Register Now</h4>
+							<h5 class="white heading small-pt">Experience the Online Learning</h5>
+							<a href="#" class="btn btn-white-fill expand">Register</a>
+						</div>
+					</div>
+				</div>
+			
+			<div class="col-md-4">
+					<div class="intro-table intro-table-third">
+						<h5 class="white heading">Testimonials</h5>
+						<div class="owl-testimonials bottom">
+							<div class="item">
+								<h4 class="white heading content">"Well, A great Effort kept ,
+							 Loved the experience on Campus Pedia"</h4>
+								<h5 class="white heading light author"> -- Vamsi Krishna P</h5>
+							</div>
+							<div class="item">
+								<h4 class="white heading content">Keep working hard to develop the best web application</h4>
+								<h5 class="white heading light author">   -- Ch.Sekhar</h5>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			
+		
+			
+		
+			</div>
+		</div>
+	</section>
+	<section id="services" class="section section-padded">
+		<div class="container">
+			<div class="row text-center title">
+				<h2>Services</h2>
+				<h4 class="light muted">An Overview of the variety of services catered by Campus-Pedia</h4>
+			</div>
+			<div class="row services">
+				<div class="col-md-4">
+					<div class="service">
+						<div class="icon-holder">
+							<img src="img/icons/qpnew.png" alt="" class="icon">
+						</div>
+						<h4 class="heading">Question Paper Generator</h4>
+						<p class="description">Campus Pedia provides a service, which on click of a button generates a question paper, Picking questions Randomly.</p>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="service">
+						<div class="icon-holder">
+							<img src="img/icons/quiz.png" alt="" class="icon">
+						</div>
+						<h4 class="heading">Quizzes</h4>
+						<p class="description">Campus-Pedia caters you with, A wide range of challenging questions to answer and earn rewards. A user adaptive type quizzes, which gives a competitve experience.</p>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="service">
+						<div class="icon-holder">
+							<img src="img/icons/forum.png" alt="" class="icon">
+						</div>
+						<h4 class="heading">Student-Faculty Forums</h4>
+						<p class="description">Campus-Pedia provides its every registered user an access to student-faculty generated forums and makes the communication process a cake-walk. </p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="cut cut-bottom"></div>
+	</section>
+	
+	
+	
+	<div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content modal-popup">
+				<a href="" class="close-link"><i class="icon_close_alt2"></i></a>
+				<h3 class="white">Sign In</h3>
+				
+				<form class="popup-form">
+					<input type="text" name="userid" id="userid" class="form-control form-white" placeholder="Username or Regd No">
+					<input type="password" name="upwd" id="upwd" class="form-control form-white" placeholder="Password">
+					
+				
+					<div class="dropdown">
+						
+						<button id="dLabel" class="form-control form-white dropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Log Me In as :
+						</button>
+						<ul class="dropdown-menu animated fadeIn" role="menu" aria-labelledby="dLabel">
+							<li class="animated lightSpeedIn"><a href="#">Head Of The Department</a></li>
+							<li class="animated lightSpeedIn"><a href="#">Faculty</a></li>
+							<li class="animated lightSpeedIn"><a href="#">Student</a></li>
+							<li class="animated lightSpeedIn"><a href="#">Website Adminstrator</a></li>
+						</ul>
+					</div>
+					 
+					<div class="checkbox-holder text-left">
+						<div class="checkbox">
+							<input type="checkbox" value="None" id="squaredOne" name="check" />
+							<label for="squaredOne"><span><strong>Remember Me</strong></span></label>
+						</div>
+					</div>
+					
+					<button type="button" class="btn btn-submit" onclick="checkData()">Submit</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	<footer>
+	
+				
+		<div class="container">
+		
+			<div class="row bottom-footer text-center-mobile">
+				<div class="col-sm-8">
+					<p>&copy; Vamsi Krishna P</p>
+				</div>
+				<div class="col-sm-4 text-right text-center-mobile">
+					<ul class="social-footer">
+						<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+						<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+						<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- Holder for mobile navigation -->
+	<div class="mobile-nav">
+		<ul>
+		</ul>
+		<a href="#" class="close-link"><i class="arrow_up"></i></a>
+	</div>
+	
+	
+<div id="status" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="mySmallModalLabel">
+  <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Status</h4>
+      </div>
+      <div class="modal-body">
+        <p>Please Wait ..... Logging In &hellip;</p>
+        <div class="progress">
+  <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+    <span class="sr-only">100% Complete</span>
+  </div>
+</div>
+      </div>
+      <div class="modal-footer">
+        <p>Taking too long??  <a href="indexcp.html"> Click Here </a></p>
+      </div>
+    </div><!-- /.modal-content -->
+  </div>
+</div>
+	
+	
+	
+	
+	
+	
+	<div id="statusfail" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="mySmallModalLabel">
+  <div class="modal-dialog">
+        <div class="modal-content">
+      <div class="modal-header">
+      
+        <h4 class="modal-title"><div class="alert alert-danger" role="alert">   Login Failed</div></h4>
+      </div>
+      <div class="modal-body">
+     
+        <p>    Sorry Something went wrong while logging into the Campus Pedia  </p>
+        <p>The Following might have been one of the reasons :
+       <ol>
+        <li>The Username and Password are INCORRECT! </li>
+        <li> Servers might have been busy at the moment.</li>
+     
+        </ol>
+        </p>
+
+
+      </div>
+      <div class="modal-footer">
+        <p><a href="indexcp.html">       <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>   Click Here to Try Again</a></p>
+      </div>
+    </div><!-- /.modal-content -->
+  </div>
+</div>
+	
+	
+	
+	<!-- Scripts -->
+	
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/wow.min.js"></script>
+	<script src="js/typewriter.js"></script>
+	<script src="js/jquery.onepagenav.js"></script>
+	<script src="js/main.js"></script>
+</body>
+
+</html>
